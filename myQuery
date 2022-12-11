@@ -1,0 +1,32 @@
+
+create database Lesson;
+
+CREATE TABLE [People]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [name] NVARCHAR(50) NOT NULL, 
+    [Sex] BIT NOT NULL, 
+    [Age] SMALLINT NOT NULL, 
+    [Address] NCHAR(10) NULL 
+)
+
+
+INSERT INTO People Values (1,'Name1',1,20,'Adress1');
+INSERT INTO People Values (2,'Name2',0,22,null);
+INSERT INTO People Values (3,'Name3',0,40,'Adress1');
+INSERT INTO People Values (4,'Name4',1,10,'Adress1');
+INSERT INTO People Values (5,'Name5',1,60,'Adress1');
+INSERT INTO People Values (6,'Name6',0,21,null);
+INSERT INTO People Values (7,'Name7',1,19,'Adress1');
+INSERT INTO People Values (8,'Name8',0,18,'Adress1');
+INSERT INTO People Values (9,'Name9',1,20,'Adress1');
+
+
+
+select * from People where Sex=1;
+Select * from People Where Age>17 and Age<22;
+select * from People where Address IS NULL;
+UPDATE People SET Age = (Select age from People as p1 where People.Id=p1.Id)+1;
+DELETE From People Where Address is Null;
+select COUNT(*) from People; 
+select COUNT(*) as Count ,Age  from People Group By (Age); 
